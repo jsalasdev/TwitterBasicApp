@@ -1,0 +1,6 @@
+
+GET     /                           controllers.TwitterApiController.index
+GET     /welcome                    controllers.TwitterApiController.welcome()
+GET     /twitter/getLanguages       controllers.TwitterApiController.getLanguages()
+GET     /twitter/getFollowers       controllers.TwitterApiController.getFollowers()
+GET     /twitter/auth               controllers.TwitterApiController.auth()
