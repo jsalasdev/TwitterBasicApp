@@ -4,3 +4,7 @@ GET     /welcome                    controllers.TwitterApiController.welcome()
 GET     /twitter/getLanguages       controllers.TwitterApiController.getLanguages()
 GET     /twitter/getFollowers       controllers.TwitterApiController.getFollowers()
 GET     /twitter/auth               controllers.TwitterApiController.auth()
+
+#DB ROUTE EXAMPLE
+
+GET     /followers                  controllers.TwitterApiController.getFollowersFromDb()

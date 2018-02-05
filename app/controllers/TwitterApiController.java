@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Follower;
 import play.libs.oauth.OAuth;
 import play.libs.oauth.OAuth.ConsumerKey;
 import play.libs.oauth.OAuth.OAuthCalculator;
@@ -10,10 +11,13 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 import com.google.common.base.Strings;
+import views.html.followers.listfollowers;
 import views.html.welcome;
-
+import views.html.followers.*;
 import javax.inject.Inject;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -41,6 +45,7 @@ public class TwitterApiController extends Controller {
     public TwitterApiController(WSClient ws) {
         this.ws = ws;
     }
+
 
     public CompletionStage<Result> getLanguages() {
         Optional<RequestToken> sessionTokenPair = getSessionTokenPair();
@@ -89,6 +94,11 @@ public class TwitterApiController extends Controller {
             return Optional.ofNullable(new RequestToken(session("token"), session("secret")));
         }
         return Optional.empty();
+    }
+
+    public Result getFollowersFromDb(){
+        List<Follower> followers = Follower.find.all();
+        return ok(listfollowers.render(followers));
     }
 
 }

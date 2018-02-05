@@ -1,0 +1,22 @@
+@(followers : List[Follower])
+
+<html>
+
+    <head>
+        <title>Seguidores BD</title>
+    </head>
+
+    <h1>Mis seguidores</h1>
+
+    <body>
+
+        @for(follower <- followers){
+            <p>@follower.email</p>
+            <p>@follower.name</p>
+            <p>@follower.date</p>
+            <p>@follower.postalCode</p>
+        }
+
+    </body>
+
+</html>
