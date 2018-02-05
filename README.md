@@ -1,2 +1,3 @@
 # TwitterBasicApp
-Basic twitter app using Play Framework
+Basic app using Play Framework for Java, using WS and JDBC connection.
+
